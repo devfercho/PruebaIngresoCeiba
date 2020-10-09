@@ -3,13 +3,16 @@ package co.com.ceiba.mobile.pruebadeingreso.dto;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity
-public class User {
+import java.io.Serializable;
 
-    @PrimaryKey
-    private int id;
+@Entity(tableName = "User")
+public class User implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    private int idUser;
 
     @ColumnInfo(name = "name")
     private String name;
@@ -23,12 +26,12 @@ public class User {
     @ColumnInfo(name = "streetAdress")
     private String streetAdress;
 
-    public int getId() {
-        return id;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getName() {

@@ -40,4 +40,6 @@ public class Callback {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
+
 }

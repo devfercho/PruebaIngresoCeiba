@@ -1,29 +1,33 @@
 
-q
-java:S1104"[Make presenterMaster a static final constant or non-public and provide accessors if needed.(¼‡‚‘
 O
-java:S1135}"2Complete the task associated to this TODO comment.(ÿÅéÀ8ş©øÜĞ.
+java:S1135?"2Complete the task associated to this TODO comment.(˜£«ë8ŒíÜĞ.
 O
-java:S1135H"2Complete the task associated to this TODO comment.(œ ÒÏ8”†îÜĞ.
+java:S1135J"2Complete the task associated to this TODO comment.(«•‡ì8”†îÜĞ.
+O
+java:S1135E"2Complete the task associated to this TODO comment.(ÔÚÜõ8”†îÜĞ.
 T
-java:S1135="2Complete the task associated to this TODO comment.(ü™–îıÿÿÿÿ8”†îÜĞ.
-O
-java:S1135:"2Complete the task associated to this TODO comment.(˜£«ë8ŒíÜĞ.
+java:S1135B"2Complete the task associated to this TODO comment.(ü™–îıÿÿÿÿ8”†îÜĞ.
+U
+java:S1135„"2Complete the task associated to this TODO comment.(¼†íÀùÿÿÿÿ8ş©øÜĞ.
 T
-java:S1135"2Complete the task associated to this TODO comment.(¼†íÀùÿÿÿÿ8ş©øÜĞ.
+java:S1135G"2Complete the task associated to this TODO comment.(õƒÈûÿÿÿÿ8”†îÜĞ.
+O
+java:S1135M"2Complete the task associated to this TODO comment.(œ ÒÏ8”†îÜĞ.
+`
+java:S22595"CA "NullPointerException" could be thrown; "posts" is nullable here.(„Ïœ˜8‘Ğ¦ìĞ.
+T
+java:S1135]"2Complete the task associated to this TODO comment.(¼†íÀùÿÿÿÿ8ğë˜İĞ.
+P
+java:S1135‚"2Complete the task associated to this TODO comment.(ÿÅéÀ8ş©øÜĞ.
+ƒ
+java:S21785"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(„Ïœ˜8‘Ğ¦ìĞ.
+O
+java:S1135["2Complete the task associated to this TODO comment.(ÿÅéÀ8ğë˜İĞ.
 I
-java:S1168Œ"+Return an empty collection instead of null.(¥¹ï8ş©øÜĞ.
+java:S1168‘"+Return an empty collection instead of null.(¥¹ï8ş©øÜĞ.
+q
+java:S1104"[Make presenterMaster a static final constant or non-public and provide accessors if needed.(¼‡‚‘
 K
-java:S1444"5Make this "public static presenterMaster" field final(¼‡‚‘
-O
-java:S1135V"2Complete the task associated to this TODO comment.(ÿÅéÀ8ğë˜İĞ.
-T
-java:S1135X"2Complete the task associated to this TODO comment.(¼†íÀùÿÿÿÿ8ğë˜İĞ.
+java:S1444"5Make this "public static presenterMaster" field final(¼‡‚‘
 }
-java:S39238"[Remove this conditional structure or edit its code blocks so that they're not all the same.(…İ×êøÿÿÿÿ8¤ÚáÜĞ.
-T
-java:S1135B"2Complete the task associated to this TODO comment.(õƒÈûÿÿÿÿ8”†îÜĞ.
-O
-java:S1135@"2Complete the task associated to this TODO comment.(ÔÚÜõ8”†îÜĞ.
-O
-java:S1135E"2Complete the task associated to this TODO comment.(«•‡ì8”†îÜĞ.
+java:S3923="[Remove this conditional structure or edit its code blocks so that they're not all the same.(…İ×êøÿÿÿÿ8¤ÚáÜĞ.

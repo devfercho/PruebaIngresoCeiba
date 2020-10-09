@@ -16,7 +16,7 @@ public interface UserDao {
     @Query("SELECT * FROM user")
     List<User> getAll();
 
-    @Query("SELECT * FROM user WHERE id IN (:userIds)")
+    @Query("SELECT * FROM user WHERE idUser IN (:userIds)")
     List<User> loadAllByIds(int[] userIds);
 
     @Query("SELECT * FROM user WHERE name LIKE :first AND " +

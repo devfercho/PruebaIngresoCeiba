@@ -25,3 +25,13 @@ Mapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/presenter/Callback.java,
 Tapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/presenter/PresenterMaster.java,b\0\b01be358dc5eeb9a4fd21452af5657e3ef8f26c5
 |
 Lapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/view/MainActivity.java,f\7\f7a77727e04efb18c582ae88734064b8022b2ee3
+y
+Iapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/rest/Endpoints.java,d\5\d58b52755f5aa1efe9f5ae69e5adaed4bfed443e
+{
+Kapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/presenter/Status.java,4\7\479f7a62f99c541ea0332033c582dc56cf5cbbb2
+u
+Eapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/rest/iRest.java,a\7\a7898752e8cffc6ccfa5984ecbd78885691475c3
+„
+Tapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/view/adapters/UserAdapter.java,c\a\ca8cb510b6699c2b5372f9ee5d8c13c68fee8ee3
+„
+Tapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/view/adapters/PostAdapter.java,d\7\d7b70978fa74e6dcec572cb36fd04b79438a0312

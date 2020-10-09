@@ -1,17 +1,27 @@
 
+£
+java:S1186S"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(±ßûÖıÿÿÿÿ8÷è¿íĞ.
+O
+java:S1135,"2Complete the task associated to this TODO comment.(£ô“š8†ŸÙĞ.
 R
-java:S2696F"6Make the enclosing method "static" or remove this set.(ÜÖÛF8¶ÑÑÜĞ.
+java:S1068"0Remove this unused "recyclerUser" private field.(š´Õ’üÿÿÿÿ8åŒ¤ïĞ.
+R
+java:S26969"6Make the enclosing method "static" or remove this set.(ÜÖÛF8°Ø±İĞ.
+Q
+java:S1068"/Remove this unused "userAdapter" private field.(®á½¼şÿÿÿÿ8Ë¤ïĞ.
+O
+java:S11356"2Complete the task associated to this TODO comment.(«–åì8æù¼îĞ.
+|
+java:S1450"ZRemove the "userAdapter" field and declare it as a local variable in the relevant methods.(®á½¼şÿÿÿÿ8‘Ô²ïĞ.
+Y	java:S110"=This class has 10 parents which is greater than 5 authorized.(²Ú±8†ŸÙĞ.
+}
+java:S1450"[Remove the "recyclerUser" field and declare it as a local variable in the relevant methods.(š´Õ’üÿÿÿÿ8•Ö´ïĞ.
+R
+java:S26961"6Make the enclosing method "static" or remove this set.(ÿ¬æZ8ìªÇÜĞ.
 k
 java:S1128"IRemove this unused import 'co.com.ceiba.mobile.pruebadeingreso.dto.User'.(ÚÊÇıÿÿÿÿ8åÔÚÜĞ.
-O
-java:S1135$"2Complete the task associated to this TODO comment.(£ô“š8†ŸÙĞ.
 M
 java:S1128
 "+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8åÔÚÜĞ.
 R
-java:S26961"6Make the enclosing method "static" or remove this set.(ÜÖÛF8°Ø±İĞ.
-Y	java:S110"=This class has 10 parents which is greater than 5 authorized.(²Ú±8†ŸÙĞ.
-R
-java:S2696)"6Make the enclosing method "static" or remove this set.(ÿ¬æZ8ìªÇÜĞ.
-O
-java:S1135/"2Complete the task associated to this TODO comment.(«–åì8¨°İĞ.
+java:S2696N"6Make the enclosing method "static" or remove this set.(ÜÖÛF8¶ÑÑÜĞ.
