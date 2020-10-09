@@ -1,0 +1,27 @@
+
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
+s
+Capp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/dto/Post.java,9\0\9093b8ec093555fb552581a147969bf9ff30a830
+
+Oapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/database/AppDataBase.java,4\d\4d52058e8eeca0fbef9b0f4192146d33eb729d75
+s
+Capp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/dto/User.java,5\f\5f0a67b126418a297addaa231c339d87ab3a3eff
+~
+Napp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/presenter/iCallback.java,1\3\13e745e6a611aa2e69b3df643be4b17ce2994d57
+
+Oapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/database/dao/UserDao.java,8\1\8113e2124433fba7fc8c617a62c8b803b223db96
+
+Oapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/database/dao/PostDao.java,1\f\1f3d510fcc1734a92d016813a36a67f68736a055
+t
+Dapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/rest/Rest.java,4\c\4c141e62aa6d2f888a68429b7368f12cff6c69d4
+}
+Mapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/presenter/Callback.java,1\8\18fe88d51a3fd7ba48b1e8f974dfe4a156abd52c
+„
+Tapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/presenter/PresenterMaster.java,b\0\b01be358dc5eeb9a4fd21452af5657e3ef8f26c5
+|
+Lapp/src/main/java/co/com/ceiba/mobile/pruebadeingreso/view/MainActivity.java,f\7\f7a77727e04efb18c582ae88734064b8022b2ee3
