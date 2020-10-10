@@ -1,13 +1,14 @@
 package co.com.ceiba.mobile.pruebadeingreso.presenter;
 
-import android.telecom.Call;
-
 import java.util.List;
 
 import co.com.ceiba.mobile.pruebadeingreso.dto.Post;
 import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 
 public class Callback {
+
+    public static final int OK = 0;
+    public static final int REST = 1;
 
     private int result;
     private List<User> user;

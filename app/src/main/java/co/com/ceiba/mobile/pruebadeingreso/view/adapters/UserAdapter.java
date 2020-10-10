@@ -2,26 +2,19 @@ package co.com.ceiba.mobile.pruebadeingreso.view.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import co.com.ceiba.mobile.pruebadeingreso.R;
 import co.com.ceiba.mobile.pruebadeingreso.dto.User;
-import co.com.ceiba.mobile.pruebadeingreso.presenter.PresenterMaster;
-import co.com.ceiba.mobile.pruebadeingreso.view.MainActivity;
 import co.com.ceiba.mobile.pruebadeingreso.view.PostActivity;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser> {
@@ -36,7 +29,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
         this.listUser = listUser;
     }
 
-    private List<User> listUserFull;
     private Context context;
 
     public UserAdapter(List<User> listUser, Context context) {
@@ -60,7 +52,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
         holder.btnPosts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               instanciarPostActivity(user);
+                instanciarPostActivity(user);
             }
         });
     }
@@ -75,7 +67,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
     public int getItemCount() {
         return listUser.size();
     }
-
 
 
     public void filterList(List<User> userFilter) {

@@ -14,7 +14,6 @@ import co.com.ceiba.mobile.pruebadeingreso.dto.Post;
 import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 import co.com.ceiba.mobile.pruebadeingreso.presenter.PresenterMaster;
 import co.com.ceiba.mobile.pruebadeingreso.view.adapters.PostAdapter;
-import co.com.ceiba.mobile.pruebadeingreso.view.adapters.UserAdapter;
 
 public class PostActivity extends AppCompatActivity {
 
@@ -42,21 +41,15 @@ public class PostActivity extends AppCompatActivity {
     }
 
     private void desplegarPost() {
-        PresenterMaster.getInstance(this).getPostByUser(user.getIdUser() + 1, this);
+        PresenterMaster.getInstance(this).getPostByUser(user.getIdUser(), this);
     }
 
     private void llenarDatosUser() {
-        user =  (User) getIntent().getSerializableExtra("user");
+        user = (User) getIntent().getSerializableExtra("user");
         tvNameUser.setText(user.getName());
         tvPhoneUser.setText(user.getPhone());
         tvMailUser.setText(user.getEmail());
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
 
     public void mostrarPosts(final List<Post> posts, final ProgressDialog progressDialog) {
         runOnUiThread(new Runnable() {

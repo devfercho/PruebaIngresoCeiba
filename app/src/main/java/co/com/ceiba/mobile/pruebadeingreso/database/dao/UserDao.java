@@ -1,7 +1,6 @@
 package co.com.ceiba.mobile.pruebadeingreso.database.dao;
 
 
-
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;

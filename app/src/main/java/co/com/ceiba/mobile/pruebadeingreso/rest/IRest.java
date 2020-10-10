@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 import static co.com.ceiba.mobile.pruebadeingreso.rest.Endpoints.GET_POST_USER;
 import static co.com.ceiba.mobile.pruebadeingreso.rest.Endpoints.GET_USERS;
 
-public interface iRest {
+public interface IRest {
 
     @GET(GET_USERS)
     Call<List<User>> getUsers();

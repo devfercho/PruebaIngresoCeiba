@@ -7,4 +7,8 @@
     <string name="generic_error">Ha ocurrido un error inesperado</string>
     <string name="accept">Aceptar</string>
     <string name="list_is_empty">List is empty</string>
+    <string name="error_services">Error de Servicio</string>
+    <string name="error_conexion">Error de Conexión</string>
+    <string name="load_user">Cargando Usuarios...</string>
+    <string name="load_post">Cargando Posts...</string>
 </resources>

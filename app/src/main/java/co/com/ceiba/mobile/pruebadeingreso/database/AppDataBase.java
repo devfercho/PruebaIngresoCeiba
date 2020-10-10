@@ -15,7 +15,7 @@ import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 @Database(entities = {User.class, Post.class}, version = 1, exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
 
-    private static AppDataBase INSTANCE;
+    private static AppDataBase instanceAppDatabase;
 
     private static final Object sLock = new Object();
 
@@ -25,10 +25,10 @@ public abstract class AppDataBase extends RoomDatabase {
 
     public static AppDataBase getInstance(final Context context) {
         synchronized (sLock) {
-            if (INSTANCE == null)
-                INSTANCE = Room.databaseBuilder(context, AppDataBase.class, "AppStore").build();
+            if (instanceAppDatabase == null)
+                instanceAppDatabase = Room.databaseBuilder(context, AppDataBase.class, "AppStore").build();
         }
-        return INSTANCE;
+        return instanceAppDatabase;
     }
 
 

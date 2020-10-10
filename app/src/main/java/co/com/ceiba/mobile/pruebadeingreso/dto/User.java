@@ -3,7 +3,6 @@ package co.com.ceiba.mobile.pruebadeingreso.dto;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -17,14 +16,52 @@ public class User implements Serializable {
     @ColumnInfo(name = "name")
     private String name;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     @ColumnInfo(name = "username")
-    private String username;
+    private String userName;
 
     @ColumnInfo(name = "email")
     private String email;
 
     @ColumnInfo(name = "streetAdress")
-    private String streetAdress;
+    private String street;
+
+    @ColumnInfo(name = "suiteAdress")
+    private String suite;
+
+    @ColumnInfo(name = "cityAdress")
+    private String city;
+
+    @ColumnInfo(name = "zipCodeAdress")
+    private String zipCode;
+
+    @ColumnInfo(name = "lat_geo")
+    private String lat;
+
+    @ColumnInfo(name = "lat_lng")
+    private String lng;
+
+    @ColumnInfo(name = "phone")
+    private String phone;
+
+    @ColumnInfo(name = "website")
+    private String website;
+
+    @ColumnInfo(name = "nameCompany")
+    private String nameCompany;
+
+    @ColumnInfo(name = "cathPhraseCompany")
+    private String cathPhraseCompany;
+
+    @ColumnInfo(name = "bsCompany")
+    private String bsCompany;
 
     public int getIdUser() {
         return idUser;
@@ -43,11 +80,11 @@ public class User implements Serializable {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public String getEmail() {
@@ -58,52 +95,52 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getStreetAdress() {
-        return streetAdress;
+    public String getStreet() {
+        return street;
     }
 
-    public void setStreetAdress(String streetAdress) {
-        this.streetAdress = streetAdress;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getSuiteAdress() {
-        return suiteAdress;
+    public String getSuite() {
+        return suite;
     }
 
-    public void setSuiteAdress(String suiteAdress) {
-        this.suiteAdress = suiteAdress;
+    public void setSuite(String suite) {
+        this.suite = suite;
     }
 
-    public String getCityAdress() {
-        return cityAdress;
+    public String getCity() {
+        return city;
     }
 
-    public void setCityAdress(String cityAdress) {
-        this.cityAdress = cityAdress;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getZipCodeAdress() {
-        return zipCodeAdress;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setZipCodeAdress(String zipCodeAdress) {
-        this.zipCodeAdress = zipCodeAdress;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
-    public String getLat_geo() {
-        return lat_geo;
+    public String getLat() {
+        return lat;
     }
 
-    public void setLat_geo(String lat_geo) {
-        this.lat_geo = lat_geo;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getLat_lng() {
-        return lat_lng;
+    public String getLng() {
+        return lng;
     }
 
-    public void setLat_lng(String lat_lng) {
-        this.lat_lng = lat_lng;
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     public String getPhone() {
@@ -146,34 +183,5 @@ public class User implements Serializable {
         this.bsCompany = bsCompany;
     }
 
-    @ColumnInfo(name = "suiteAdress")
-    private String suiteAdress;
-
-    @ColumnInfo(name = "cityAdress")
-    private String cityAdress;
-
-    @ColumnInfo(name = "zipCodeAdress")
-    private String zipCodeAdress;
-
-    @ColumnInfo(name = "lat_geo")
-    private String lat_geo;
-
-    @ColumnInfo(name = "lat_lng")
-    private String lat_lng;
-
-    @ColumnInfo(name = "phone")
-    private String phone;
-
-    @ColumnInfo(name = "website")
-    private String website;
-
-    @ColumnInfo(name = "nameCompany")
-    private String nameCompany;
-
-    @ColumnInfo(name = "cathPhraseCompany")
-    private String cathPhraseCompany;
-
-    @ColumnInfo(name = "bsCompany")
-    private String bsCompany;
 
 }
