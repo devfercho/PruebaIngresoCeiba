@@ -1,6 +1,7 @@
 package co.com.ceiba.mobile.pruebadeingreso.presenter;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -13,11 +14,13 @@ import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 import co.com.ceiba.mobile.pruebadeingreso.rest.Rest;
 import co.com.ceiba.mobile.pruebadeingreso.view.MainActivity;
 import co.com.ceiba.mobile.pruebadeingreso.view.PostActivity;
+import io.realm.Progress;
 
 import static co.com.ceiba.mobile.pruebadeingreso.presenter.Status.OK;
 import static co.com.ceiba.mobile.pruebadeingreso.presenter.Status.REST;
 
 public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> {
+    private ProgressDialog progressDialog;
     public static PresenterMaster presenterMaster;
     private AppDataBase db;
     private Rest rest;
@@ -31,6 +34,16 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
         this.rest = new Rest();
         this.callback = new Callback();
         this.myActivity = myActivity;
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        this.progressDialog = new ProgressDialog(myActivity);
+        super.onPreExecute();
+        progressDialog.setMessage("Cargando Usuarios...");
+        progressDialog.cancel();
+        progressDialog.show();
     }
 
     public static PresenterMaster getInstance(final Activity myActivity) {
@@ -87,7 +100,7 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
     @Override
     protected void onPostExecute(Callback callback) {
         super.onPostExecute(callback);
-
+        progressDialog.dismiss();
         iCallback.getResult(callback);
     }
 
@@ -133,14 +146,19 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
 
 
     public void getPostByUser(final int idUser, final PostActivity postActivity){
+
+        final ProgressDialog progressDialog = new ProgressDialog(postActivity);
+        progressDialog.setMessage("Cargando Posts...");
+        progressDialog.cancel();
+        progressDialog.show();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 List<Post> posts = PresenterMaster.getInstance(myActivity).db.postDao().loadAllByIds(new int[]{idUser});
                 if(posts != null && !posts.isEmpty())
-                    postActivity.mostrarUsuarios(posts);
+                    postActivity.mostrarPosts(posts, progressDialog);
                 else
-                    PresenterMaster.this.rest.getPostRest(idUser, postActivity);
+                    PresenterMaster.this.rest.getPostRest(idUser, postActivity, progressDialog);
             }
         }).start();
     }
@@ -150,7 +168,7 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
         ((MainActivity)myActivity).mostrarUsuarios(users);
     }
 
-    public void mostrarPosts(final List<Post> posts, final PostActivity postActivity) {
-        postActivity.mostrarUsuarios(posts);
+    public void mostrarPosts(final List<Post> posts, final PostActivity postActivity, final ProgressDialog progressDialog) {
+        postActivity.mostrarPosts(posts, progressDialog);
     }
 }

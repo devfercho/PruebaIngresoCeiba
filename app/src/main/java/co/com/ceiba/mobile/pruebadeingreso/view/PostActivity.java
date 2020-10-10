@@ -1,5 +1,6 @@
 package co.com.ceiba.mobile.pruebadeingreso.view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,7 +46,6 @@ public class PostActivity extends AppCompatActivity {
     }
 
     private void llenarDatosUser() {
-        //TODO recibir objeto por intnet
         user =  (User) getIntent().getSerializableExtra("user");
         tvNameUser.setText(user.getName());
         tvPhoneUser.setText(user.getPhone());
@@ -58,7 +58,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
 
-    public void mostrarUsuarios(final List<Post> posts) {
+    public void mostrarPosts(final List<Post> posts, final ProgressDialog progressDialog) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -66,6 +66,7 @@ public class PostActivity extends AppCompatActivity {
                 postAdapter = new PostAdapter(posts);
                 recyclerPost.setLayoutManager(new LinearLayoutManager(PostActivity.this.getApplicationContext()));
                 recyclerPost.setAdapter(postAdapter);
+                progressDialog.dismiss();
 
             }
         });

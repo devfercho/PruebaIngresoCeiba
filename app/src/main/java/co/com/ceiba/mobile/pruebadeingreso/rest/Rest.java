@@ -1,6 +1,7 @@
 package co.com.ceiba.mobile.pruebadeingreso.rest;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 
@@ -12,6 +13,7 @@ import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 import co.com.ceiba.mobile.pruebadeingreso.presenter.PresenterMaster;
 import co.com.ceiba.mobile.pruebadeingreso.view.MainActivity;
 import co.com.ceiba.mobile.pruebadeingreso.view.PostActivity;
+import io.realm.Progress;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,8 +40,10 @@ public class Rest {
         callUser.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+
                 if (!response.isSuccessful()) {
                     //TODO: validar si es diferente a 200
+
                 } else {
                     Log.i("onResponse", "else");
                     final List<User> users = response.body();
@@ -48,6 +52,7 @@ public class Rest {
                         public void run() {
                             PresenterMaster.getInstance(myActivity).insertUser(users);
                             PresenterMaster.getInstance(myActivity).mostrarUsuarios(users);
+
                         }
                     }).start();
 
@@ -57,11 +62,13 @@ public class Rest {
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 //TODO: mostrar que fallo al traer los datos
+
             }
         });
     }
 
-    public void getPostRest(final int idUser, final PostActivity postActivity) {
+    public void getPostRest(final int idUser, final PostActivity postActivity, final ProgressDialog progressDialog) {
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL_BASE)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -75,6 +82,7 @@ public class Rest {
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if (!response.isSuccessful()) {
                     //TODO: validar si es diferente a 200
+                    progressDialog.dismiss();
                 } else {
                     Log.i("onResponse", "else");
                     final List<Post> posts = response.body();
@@ -82,7 +90,7 @@ public class Rest {
                         @Override
                         public void run() {
                             PresenterMaster.getInstance(postActivity).insertPost(posts);
-                            PresenterMaster.getInstance(postActivity).mostrarPosts(posts, postActivity);
+                            PresenterMaster.getInstance(postActivity).mostrarPosts(posts, postActivity, progressDialog);
 
                         }
                     }).start();
@@ -93,6 +101,7 @@ public class Rest {
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
                 //TODO: mostrar que fallo al traer los datos
+                progressDialog.dismiss();
             }
         });
     }

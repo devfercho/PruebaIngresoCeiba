@@ -1,5 +1,6 @@
 package co.com.ceiba.mobile.pruebadeingreso.view;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -68,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        //TODO hacer que se limpie el editText, luego de volver de la activity de post
+        Log.i("f", "onResume");
+        super.onResume();
+    }
+
     private void filter(String textSearch) {
         List<User> filterUser = new ArrayList<>();
 
@@ -99,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
     private void showUser() {
         Log.i("showUser", "init");
         stopAsyncTask();
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Cargando Usuarios...");
+        progressDialog.cancel();
+        progressDialog.show();
         if (presenterMaster == null) {
             presenterMaster = new PresenterMaster(MainActivity.this);
             presenterMaster.callback(new iCallback() {
@@ -108,8 +120,9 @@ public class MainActivity extends AppCompatActivity {
                         //TODO Recibe el resultado y empieza hacer el recycler
                         MainActivity.this.setUsers(callback.getUser());
                         mostrarUsuarios(MainActivity.this.users);
+                        progressDialog.dismiss();
                     } else if (callback.getResult() == REST) {
-
+                        progressDialog.dismiss();
                     }
                     presenterMaster = null;
                 }
@@ -130,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
                 userAdapter = new UserAdapter(users, MainActivity.this.getApplicationContext());
                 recyclerUser.setLayoutManager(new LinearLayoutManager(MainActivity.this.getApplicationContext()));
                 recyclerUser.setAdapter(userAdapter);
-
             }
         });
     }
