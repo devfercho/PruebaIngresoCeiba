@@ -11,6 +11,7 @@ import co.com.ceiba.mobile.pruebadeingreso.dto.Post;
 import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 import co.com.ceiba.mobile.pruebadeingreso.presenter.PresenterMaster;
 import co.com.ceiba.mobile.pruebadeingreso.view.MainActivity;
+import co.com.ceiba.mobile.pruebadeingreso.view.PostActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,7 +61,7 @@ public class Rest {
         });
     }
 
-    public void getPostRest(final int idUser ,final Activity myActivity) {
+    public void getPostRest(final int idUser, final PostActivity postActivity) {
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL_BASE)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -80,8 +81,8 @@ public class Rest {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            PresenterMaster.getInstance(myActivity).insertPost(posts);
-                            PresenterMaster.getInstance(myActivity).mostrarPosts(posts);
+                            PresenterMaster.getInstance(postActivity).insertPost(posts);
+                            PresenterMaster.getInstance(postActivity).mostrarPosts(posts, postActivity);
 
                         }
                     }).start();

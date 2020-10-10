@@ -41,7 +41,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
     private void desplegarPost() {
-        PresenterMaster.getInstance(this).getPostByUser(user.getIdUser(), this);
+        PresenterMaster.getInstance(this).getPostByUser(user.getIdUser() + 1, this);
     }
 
     private void llenarDatosUser() {

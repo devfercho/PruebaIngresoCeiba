@@ -8,11 +8,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.text.Editable;
+import android.text.Layout;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -35,13 +38,16 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerUser;
     private UserAdapter userAdapter;
     private EditText etName;
+    private TextView tvEmptyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         recyclerUser = findViewById(R.id.recyclerViewSearchResults);
         etName = findViewById(R.id.editTextSearch);
+        tvEmptyList = findViewById(R.id.tvEmptyList);
 
         etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -64,14 +70,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void filter(String textSearch) {
         List<User> filterUser = new ArrayList<>();
-        if(users.isEmpty())
+
+        if (users != null && users.isEmpty())
             users = userAdapter.getListUser();
-        for(User user: users ){
-            if(user.getName().toLowerCase().contains(textSearch.toLowerCase())){
+        for (User user : users) {
+            if (user.getName().toLowerCase().contains(textSearch.toLowerCase())) {
                 filterUser.add(user);
             }
         }
-        userAdapter.filterList(filterUser);
+        if (filterUser.isEmpty()) {
+            recyclerUser.setVisibility(View.INVISIBLE);
+            tvEmptyList.setVisibility(View.VISIBLE);
+        } else{
+            tvEmptyList.setVisibility(View.INVISIBLE);
+            recyclerUser.setVisibility(View.VISIBLE);
+            userAdapter.filterList(filterUser);
+        }
+
     }
 
     @Override
@@ -93,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                         //TODO Recibe el resultado y empieza hacer el recycler
                         MainActivity.this.setUsers(callback.getUser());
                         mostrarUsuarios(MainActivity.this.users);
-                    }else if(callback.getResult() == REST){
+                    } else if (callback.getResult() == REST) {
 
                     }
                     presenterMaster = null;

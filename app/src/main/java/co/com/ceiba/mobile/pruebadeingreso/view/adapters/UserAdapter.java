@@ -2,6 +2,7 @@ package co.com.ceiba.mobile.pruebadeingreso.view.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -79,6 +81,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
     public void filterList(List<User> userFilter) {
         listUser = userFilter;
         notifyDataSetChanged();
+
+
     }
 
 

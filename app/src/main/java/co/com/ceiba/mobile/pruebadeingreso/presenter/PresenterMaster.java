@@ -146,11 +146,11 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
     }
 
 
-    public void mostrarUsuarios(List <User> users) {
+    public void mostrarUsuarios(final List <User> users) {
         ((MainActivity)myActivity).mostrarUsuarios(users);
     }
 
-    public void mostrarPosts(List<Post> posts) {
-        ((PostActivity)myActivity).mostrarUsuarios(posts);
+    public void mostrarPosts(final List<Post> posts, final PostActivity postActivity) {
+        postActivity.mostrarUsuarios(posts);
     }
 }
