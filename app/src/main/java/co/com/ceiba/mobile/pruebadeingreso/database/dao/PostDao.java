@@ -12,9 +12,6 @@ import co.com.ceiba.mobile.pruebadeingreso.dto.Post;
 @Dao
 public interface PostDao {
 
-    @Query("SELECT * FROM post")
-    List<Post> getAll();
-
     @Query("SELECT * FROM post WHERE userId IN (:userId)")
     List<Post> loadAllByIds(int[] userId);
 

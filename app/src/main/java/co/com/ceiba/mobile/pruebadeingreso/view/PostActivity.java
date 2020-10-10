@@ -44,6 +44,9 @@ public class PostActivity extends AppCompatActivity {
         PresenterMaster.getInstance(this).getPostByUser(user.getIdUser(), this);
     }
 
+    /**
+     * Con el Objeto User (Serializable) llena los datos del layout
+     */
     private void llenarDatosUser() {
         user = (User) getIntent().getSerializableExtra("user");
         tvNameUser.setText(user.getName());
@@ -51,6 +54,12 @@ public class PostActivity extends AppCompatActivity {
         tvMailUser.setText(user.getEmail());
     }
 
+    /**
+     * Con los Posts Recibido, infla el RecyclerView por medio de su PostAdapter
+     *
+     * @param posts          Post recibidos de la consulta o BD
+     * @param progressDialog
+     */
     public void mostrarPosts(final List<Post> posts, final ProgressDialog progressDialog) {
         runOnUiThread(new Runnable() {
             @Override

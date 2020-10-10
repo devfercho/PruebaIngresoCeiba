@@ -79,14 +79,6 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getUsername() {
-        return userName;
-    }
-
-    public void setUsername(String username) {
-        this.userName = username;
-    }
-
     public String getEmail() {
         return email;
     }

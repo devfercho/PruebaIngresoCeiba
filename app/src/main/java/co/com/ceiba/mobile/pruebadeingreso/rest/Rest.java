@@ -23,6 +23,10 @@ public class Rest {
 
     private Retrofit retrofit;
 
+    /**
+     * Consulta con Retrofit todos los usuarios
+     * @param myActivity
+     */
     public void getUserRest(final Activity myActivity) {
 
         retrofit = new Retrofit.Builder()
@@ -44,8 +48,8 @@ public class Rest {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            PresenterMaster.getInstance(myActivity).insertUser(users);
-                            PresenterMaster.getInstance(myActivity).mostrarUsuarios(users);
+                            PresenterMaster.getInstance(myActivity).insertUser(users); //Inserta los usuarios en la BD
+                            PresenterMaster.getInstance(myActivity).mostrarUsuarios(users); //Muestra esos usuarios en el RecyclerView
 
                         }
                     }).start();
@@ -60,6 +64,13 @@ public class Rest {
         });
     }
 
+    /**
+     * Consulta con Retrofit los Posts de un usuario seleccionado
+     *
+     * @param idUser
+     * @param postActivity
+     * @param progressDialog
+     */
     public void getPostRest(final int idUser, final PostActivity postActivity, final ProgressDialog progressDialog) {
 
         retrofit = new Retrofit.Builder()
@@ -81,8 +92,8 @@ public class Rest {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            PresenterMaster.getInstance(postActivity).insertPost(posts);
-                            PresenterMaster.getInstance(postActivity).mostrarPosts(posts, postActivity, progressDialog);
+                            PresenterMaster.getInstance(postActivity).insertPost(posts); //Inserta los Posts del usuario consultado en la BD
+                            PresenterMaster.getInstance(postActivity).mostrarPosts(posts, postActivity, progressDialog); //Muestra esos Posts en el RecyclerView
 
                         }
                     }).start();

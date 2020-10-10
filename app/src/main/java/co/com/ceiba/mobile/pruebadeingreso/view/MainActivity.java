@@ -23,7 +23,6 @@ import co.com.ceiba.mobile.pruebadeingreso.presenter.PresenterMaster;
 import co.com.ceiba.mobile.pruebadeingreso.view.adapters.UserAdapter;
 
 import static co.com.ceiba.mobile.pruebadeingreso.presenter.Callback.OK;
-import static co.com.ceiba.mobile.pruebadeingreso.presenter.Callback.REST;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,17 +62,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //TODO hacer que se limpie el editText, luego de volver de la activity de post
+    private void setUsers(List<User> users) {
+        this.users = users;
+    }
 
-
+    /**
+     * Filtra los usuarios por el nombre que se va escribiendo
+     * Muestra un mensaje de "Empty List" si ningun nombre coincide con el resultado
+     *
+     * @param textSearch Cadena digitada por el usuario
+     */
     private void filter(String textSearch) {
-        if(!textSearch.isEmpty()){
+        if (!textSearch.isEmpty()) {
             List<User> filterUser = new ArrayList<>();
 
             if (users == null || (users != null && users.isEmpty())) {
                 users = userAdapter.getListUser();
             }
-
 
             for (User user : users) {
                 if (user.getName().toLowerCase().contains(textSearch.toLowerCase())) {
@@ -91,18 +96,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        etName.setText("");
+        etName.setText(""); //Limpiamos el EditText al volver a la activity
         showUser();
     }
 
+    /**
+     * Ejecuta el AsynkTask PresentMaster, el cual buscara los usuarios en la BD usando Room,
+     * de no encontrarlos, realiza una petición GET con Retrofit.
+     * Al final, por medio del Callback, infla el RecyclerView con los usuarios obtenidos.
+     */
     private void showUser() {
-
         stopAsyncTask();
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.load_user));
@@ -115,20 +123,19 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.setUsers(callback.getUser());
                     mostrarUsuarios(MainActivity.this.users);
                     progressDialog.dismiss();
-                } else if (callback.getResult() == REST) {
-                    progressDialog.dismiss();
                 }
+                progressDialog.dismiss();
                 PresenterMaster.setInstanceNull();
             }
         });
         PresenterMaster.getInstance(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-
-    private void setUsers(List<User> users) {
-        this.users = users;
-    }
-
+    /**
+     * Infla el RecyclerView por medio de su clase UserAdapter
+     *
+     * @param users Lista con los Users que mostrara en el RecyclerView
+     */
     public void mostrarUsuarios(final List<User> users) {
         runOnUiThread(new Runnable() {
             @Override
@@ -141,11 +148,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Detiene el AsynkTask PresenteMaster
+     */
     private void stopAsyncTask() {
         PresenterMaster.getInstance(this).cancel(true);
         PresenterMaster.setInstanceNull();
-
     }
-
 
 }

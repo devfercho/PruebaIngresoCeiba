@@ -2,21 +2,20 @@ package co.com.ceiba.mobile.pruebadeingreso.presenter;
 
 import java.util.List;
 
-import co.com.ceiba.mobile.pruebadeingreso.dto.Post;
 import co.com.ceiba.mobile.pruebadeingreso.dto.User;
 
+/**
+ * Clase para obtener el resultado de consultar los usuarios
+ * con el AsynkTask PresenteMaster
+ */
 public class Callback {
 
-    public static final int OK = 0;
-    public static final int REST = 1;
+    public static final int OK = 0; //Indica que los usuarios ya estaban guardados localmente
+    public static final int REST = 1; //Indica que la consulta REST se debe realizar
 
     private int result;
     private List<User> user;
-    private List<Post> posts;
 
-    public Callback getCallback(final Callback callback) {
-        return callback;
-    }
 
     public int getResult() {
         return result;
@@ -32,14 +31,6 @@ public class Callback {
 
     public void setUser(List<User> user) {
         this.user = user;
-    }
-
-    public List<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
     }
 
 

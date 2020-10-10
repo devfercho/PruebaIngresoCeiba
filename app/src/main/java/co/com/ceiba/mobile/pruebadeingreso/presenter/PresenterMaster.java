@@ -72,6 +72,12 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
     }
 
 
+    /**
+     * Busca los Users en la BD local con Room
+     * Si no los encuentra alli, realiza una petición REST
+     *
+     * @return
+     */
     private List<User> getUsers() {
         List<User> users = PresenterMaster.this.db.userDao().getAll();
         if (users.isEmpty())
@@ -80,11 +86,21 @@ public class PresenterMaster extends AsyncTask<MainActivity, Integer, Callback> 
         return users;
     }
 
+    /**
+     * Inserta los Usuarios en la BD con Room
+     *
+     * @param users
+     */
     public void insertUser(final List<User> users) {
         PresenterMaster.this.db.userDao().insertAll(users);
     }
 
 
+    /**
+     * Inserta los Posts en la BD con Rooom
+     *
+     * @param posts
+     */
     public void insertPost(final List<Post> posts) {
         PresenterMaster.this.db.postDao().insertAll(posts);
     }
